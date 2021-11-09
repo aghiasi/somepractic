@@ -1,23 +1,16 @@
-{% load static%}
-<html lang="en">
-<head>
- <meta charset="UTF-8">
- <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>some sht</title>
- <link rel="stylesheet" href='{% static "style.css"%}'>
-</head>
-<body>
+{%extends 'base.html'%}
+{% block title %}
+new sht
+{% endblock %}
 <div>
-
+{% block content %}
 {% for a in articles  %}
 <h2>
- <a href="">{{a.title}}</a>
+ <a href="{% url 'articles:detail' slug=a.slug %}">{{a.title}}</a>
 </h2>
  <p>{{a.body}}</p>
  <p>{{a.snipet}}</p>
 
 {% endfor %}
 </div> 
-</body>
-</html>
+{% endblock %}

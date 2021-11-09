@@ -1,11 +1,13 @@
 from django.contrib import admin
 from django.urls import path,include
 from .import views
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+app_name = 'articles'
 urlpatterns = [
 
-    path('',views.articles_handler)
+    path('',views.articles_handler,name='list')
+    ,path('<slug>',views.articles_slug,name ='detail')
 
 ]
+
 
